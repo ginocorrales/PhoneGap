@@ -47,7 +47,9 @@ var MemoryStore = function(successCallback, errorCallback) {
             {"id": 13, "firstName": "Meredith", "lastName": "Palmer", "title":"Supplier Relations", "managerId": 2, "city":"Scranton, PA", "cellPhone":"570-588-6567", "officePhone":"570-981-6167", "email":"meredith@dundermifflin.com"},
             {"id": 14, "firstName": "Kelly", "lastName": "Kapoor", "title":"Customer Service Rep.", "managerId": 2, "city":"Scranton, PA", "cellPhone":"570-123-9654", "officePhone":"570-125-3666", "email":"kelly@dundermifflin.com"},
             {"id": 15, "firstName": "Toby", "lastName": "Flenderson", "title":"Human Resources", "managerId": 1, "city":"Scranton, PA", "cellPhone":"570-485-8554", "officePhone":"570-699-5577", "email":"toby@dundermifflin.com"},
-            {"id": 16, "firstName": "Paolo", "lastName": "Delgado", "title":"PMO", "managerId": 4, "city":"Arequipa, PE", "cellPhone":"217-979-2211", "officePhone":"309-699-5577", "email":"caradepoto@laraya.com"}
+            {"id": 16, "firstName": "Donovan", "lastName": "Corrales", "title":"Regional CIO", "managerId": 2, "city":"Normal, IL", "cellPhone":"570-999-2536", "officePhone":"570-332-4567", "email":"donovan@dundermifflin.com"},
+            {"id": 17, "firstName": "Luka", "lastName": "Corrales", "title":"Regional Manager II", "managerId": 1, "city":"Peoria, IL", "cellPhone":"1217-350-0805", "officePhone":"570-123-4567", "email":"lukaluuuu@blahblahblah.com"},
+            {"id": 18, "firstName": "Paolo", "lastName": "Delgado", "title":"PMO", "managerId": 4, "city":"Arequipa, PE", "cellPhone":"217-979-2211", "officePhone":"309-699-5577", "email":"caradepoto@laraya.com"}
         ];
 
     callLater(successCallback);
