@@ -182,9 +182,26 @@ h2 {
     margin: 0px;
 }
 
+h3 {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+}
+
 .employee-image {
     float:left;
     margin:10px;
     width:100px;
     height:100px;
+}
+
+.scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 84px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }

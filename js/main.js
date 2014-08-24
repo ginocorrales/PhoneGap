@@ -23,14 +23,14 @@ var app = {
     },
     */
     
-    // step 5
+    /*// step 5
     findByName: function() {
         var self = this;
         this.store.findByName($('.search-key').val(), function(employees) {
             $('.employee-list').html(self.employeeLiTpl(employees));
         });
     },
-
+    */
     /* //Step 4 
     renderHomeView: function() {
         var html =
@@ -44,23 +44,30 @@ var app = {
     },
     */
     
-    // step 5
+    /*// step 5
     renderHomeView: function() {
         $('body').html(this.homeTpl());
         $('.search-key').on('keyup', $.proxy(this.findByName, this));
     },
+    */
 
     initialize: function() {
         var self = this;
         this.store = new MemoryStore(function() {
             //self.showAlert('Store Initialized - This is a GinosAlert', 'Info');
-            self.renderHomeView();
+            
+            //in step 6 - Remove the renderHomeView() function from the app object.
+            //self.renderHomeView();
+            //in step 6 -  display the Home View using the HomeView class:
+            $('body').html(new HomeView(self.store).render().el);      
         });
         //$('.search-key').on('keyup', $.proxy(this.findByName, this));
         
+        /* In step 6 - This step was removed
         // to compile the HTML template to render the Home View and the Employee list item...
         this.homeTpl = Handlebars.compile($("#home-tpl").html());
         this.employeeLiTpl = Handlebars.compile($("#employee-li-tpl").html());
+        */
     }
 
 };
