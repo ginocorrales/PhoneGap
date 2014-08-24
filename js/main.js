@@ -31,7 +31,7 @@ var app = {
         });
     },
 
-    /* //Step 3 
+    /* //Step 4 
     renderHomeView: function() {
         var html =
                 "<div class='header'><h1>Ginos Employee Search</h1></div>" +

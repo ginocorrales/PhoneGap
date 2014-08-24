@@ -1,4 +1,4 @@
-# PhoneGap Workshop #
+# Adaptation of PhoneGap Tutorial #
 
 In this tutorial, a fully functional employee directory application is created using with PhoneGap based in the Tutorial from Coenrates.org
 Here  You will learn:
