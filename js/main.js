@@ -1,5 +1,30 @@
 var app = {
 
+    /*  Part 8 - Highlighting Tapped or Clicked UI Elements - Define a registerEvents() function 
+        inside the app object. Add a the tappable_active class to the selected (tapped or clicked) list item:
+    */
+    registerEvents: function() {
+        var self = this;
+        // Check of browser supports touch events...
+        if (document.documentElement.hasOwnProperty('ontouchstart')) {
+            // ... if yes: register touch event listener to change the "selected" state of the item
+            $('body').on('touchstart', 'a', function(event) {
+                $(event.target).addClass('tappable-active');
+            });
+            $('body').on('touchend', 'a', function(event) {
+                $(event.target).removeClass('tappable-active');
+            });
+        } else {
+            // ... if not: register mouse events instead
+            $('body').on('mousedown', 'a', function(event) {
+                $(event.target).addClass('tappable-active');
+            });
+            $('body').on('mouseup', 'a', function(event) {
+                $(event.target).removeClass('tappable-active');
+            });
+        }
+    },
+
     showAlert: function (message, title) {
         if (navigator.notification) {
             navigator.notification.alert(message, null, title, 'OK');
@@ -8,7 +33,7 @@ var app = {
         }
     },
 
-    /* //Step 3
+    /* // Part 3
     findByName: function() {
         console.log('findByName');
         this.store.findByName($('.search-key').val(), function(employees) {
@@ -52,8 +77,10 @@ var app = {
     */
 
     initialize: function() {
-        var self = this;
-        this.store = new MemoryStore(function() {
+            var self = this;
+            //Part 8 - Invoke the registerEvents() function
+            this.registerEvents();
+            this.store = new MemoryStore(function() {
             //self.showAlert('Store Initialized - This is a GinosAlert', 'Info');
             
             //in step 6 - Remove the renderHomeView() function from the app object.
