@@ -26,9 +26,13 @@ var HomeView = function(store) {
     	store.findByName($('.search-key').val(), function(employees) 
     	{
       	  $('.employee-list').html(HomeView.liTemplate(employees));
-      	  // Part 7 :  Instantiate an iScroll object to scroll the list of 
-      	  // employees returned. If the iScroll object already exists (), 
-      	  // simply refresh it to adapt it to the new size of the list.
+      	  
+      	  /* Part 7 :  Instantiate an iScroll object to scroll the list of 
+      	     employees returned. If the iScroll object already exists (), 
+      	     simply refresh it to adapt it to the new size of the list.
+      	  */ 
+      	  /* //In Step 9 the following code is deleted 
+
       	  if (self.iscroll) {
             console.log('Refresh iScroll');
             self.iscroll.refresh();
@@ -36,6 +40,8 @@ var HomeView = function(store) {
 	            console.log('New iScroll');
 	            self.iscroll = new iScroll($('.scroll', self.el)[0], {hScrollbar: false, vScrollbar: false });
 	        }
+
+	      */
     	});
 	};
     
@@ -48,5 +54,6 @@ var HomeView = function(store) {
  	this.initialize();
 
 }
+
 HomeView.template = Handlebars.compile($("#home-tpl").html());
 HomeView.liTemplate = Handlebars.compile($("#employee-li-tpl").html());
