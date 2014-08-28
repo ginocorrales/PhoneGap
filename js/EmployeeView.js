@@ -9,8 +9,6 @@ var EmployeeView = function(employee) {
  
     this.initialize = function() {
         this.el = $('<div/>');
-        // Part 10 - Register an event listener for the click event of the Add Location list item:
-        this.el.on('click', '.add-location-btn', this.addLocation);
     };
  
     // Define a render() function 
@@ -19,6 +17,7 @@ var EmployeeView = function(employee) {
 	    return this;
 	};
     this.initialize();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -35,6 +34,8 @@ var EmployeeView = function(employee) {
 	        });
 	    return false;
 };
+=======
+>>>>>>> parent of 34d24ae... Part 10 - Using the Location API
  
 >>>>>>> origin/master
  }
