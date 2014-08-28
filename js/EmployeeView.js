@@ -20,6 +20,7 @@ var EmployeeView = function(employee) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     //Part 10 - Define the addLocation event handler as follows
@@ -35,6 +36,8 @@ var EmployeeView = function(employee) {
 	        });
 	    return false;
 };
+=======
+>>>>>>> parent of 34d24ae... Part 10 - Using the Location API
 =======
 >>>>>>> parent of 34d24ae... Part 10 - Using the Location API
 =======
