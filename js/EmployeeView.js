@@ -16,9 +16,7 @@ var EmployeeView = function(employee) {
 	    this.el.html(EmployeeView.template(employee));
 	    return this;
 	};
-	
     this.initialize();
- 
  }
  
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
