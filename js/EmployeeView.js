@@ -9,6 +9,8 @@ var EmployeeView = function(employee) {
  
     this.initialize = function() {
         this.el = $('<div/>');
+        // Part 10 - Register an event listener for the click event of the Add Location list item:
+        this.el.on('click', '.add-location-btn', this.addLocation);
     };
  
     // Define a render() function 
@@ -17,6 +19,24 @@ var EmployeeView = function(employee) {
 	    return this;
 	};
     this.initialize();
+<<<<<<< HEAD
+=======
+
+    //Part 10 - Define the addLocation event handler as follows
+    this.addLocation = function(event) {
+    	event.preventDefault();
+	    console.log('addLocation');
+	    navigator.geolocation.getCurrentPosition(
+	        function(position) {
+	            $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
+	        },
+	        function() {
+	            alert('Error getting location');
+	        });
+	    return false;
+};
+ 
+>>>>>>> origin/master
  }
  
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
