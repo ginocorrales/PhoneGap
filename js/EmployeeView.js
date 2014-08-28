@@ -9,6 +9,7 @@ var EmployeeView = function(employee) {
  
     this.initialize = function() {
         this.el = $('<div/>');
+        this.el.on('click', '.add-location-btn', this.addLocation);
     };
  
     // Define a render() function 
@@ -16,13 +17,8 @@ var EmployeeView = function(employee) {
 	    this.el.html(EmployeeView.template(employee));
 	    return this;
 	};
-    this.initialize();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
+    
     //Part 10 - Define the addLocation event handler as follows
     this.addLocation = function(event) {
     	event.preventDefault();
@@ -35,15 +31,9 @@ var EmployeeView = function(employee) {
 	            alert('Error getting location');
 	        });
 	    return false;
-};
-=======
->>>>>>> parent of 34d24ae... Part 10 - Using the Location API
-=======
->>>>>>> parent of 34d24ae... Part 10 - Using the Location API
-=======
->>>>>>> parent of 34d24ae... Part 10 - Using the Location API
- 
->>>>>>> origin/master
- }
+	};
+
+	this.initialize(); 
+}
  
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
