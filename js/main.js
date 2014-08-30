@@ -48,22 +48,35 @@ var app = {
     /*  Part 9 - Step 3 - Define a route() function to route requests to the appropriate view:
         - If there is no hash tag in the URL: display the HomeView
         - If there is a has tag matching the pattern for an employee details URL: display an EmployeeView for the specified employee
+    
+        For Part 13 - Step 3 - route() was modified.
     */
     route: function() {
+        var self = this;
         var hash = window.location.hash;
         if (!hash) {
-            $('body').html(new HomeView(this.store).render().el);
+            //This line was commented for Part 13
+            //$('body').html(new HomeView(this.store).render().el);
+            //and this block of code was added
+            if (this.homePage) {
+                this.slidePage(this.homePage);
+            } else {
+                this.homePage = new HomeView(this.store).render();
+                this.slidePage(this.homePage);
+            }
             return;
         }
         var match = hash.match(app.detailsURL);
         if (match) {
             this.store.findById(Number(match[1]), function(employee) {
-                $('body').html(new EmployeeView(employee).render().el);
+                //This line was commented for Part 13
+                //$('body').html(new EmployeeView(employee).render().el);
+                //and this line was added
+                self.slidePage(new EmployeeView(employee).render());
             });
         }
     },
 
-    
     /* // Part 3
     findByName: function() {
         console.log('findByName');
@@ -106,6 +119,46 @@ var app = {
         $('.search-key').on('keyup', $.proxy(this.findByName, this));
     },
     */
+
+    // Part 13 - Sliding Pages with CSS Transitions
+    slidePage: function(page) {
+     
+        var currentPageDest,
+            self = this;
+     
+        // If there is no current page (app just started) -> No transition: Position new page in the view port
+        if (!this.currentPage) {
+            $(page.el).attr('class', 'page stage-center');
+            $('body').append(page.el);
+            this.currentPage = page;
+            return;
+        }
+     
+        // Cleaning up: remove old pages that were moved out of the viewport
+        $('.stage-right, .stage-left').not('.homePage').remove();
+     
+        if (page === app.homePage) {
+            // Always apply a Back transition (slide from left) when we go back to the search page
+            $(page.el).attr('class', 'page stage-left');
+            currentPageDest = "stage-right";
+        } else {
+            // Forward transition (slide from right)
+            $(page.el).attr('class', 'page stage-right');
+            currentPageDest = "stage-left";
+        }
+     
+        $('body').append(page.el);
+     
+        // Wait until the new page has been added to the DOM...
+        setTimeout(function() {
+            // Slide out the current page: If new page slides from the right -> slide current page to the left, and vice versa
+            $(self.currentPage.el).attr('class', 'page transition ' + currentPageDest);
+            // Slide in the new page
+            $(page.el).attr('class', 'page stage-center transition');
+            self.currentPage = page;
+        });
+     
+    },
 
     initialize: function() {
             
